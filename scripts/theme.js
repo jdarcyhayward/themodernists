@@ -798,6 +798,7 @@ class ImageBlock {
 
 (function($) {
 	$(document).ready(function(){ 
+		console.log('init');
 		var url=window.location.href;
 		if(url.indexOf('modern')>-1 || url.indexOf('local')>-1) new Loader(); 
 		else {
