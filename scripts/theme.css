@@ -5911,6 +5911,7 @@ body[dataClosing] #loader #logo-loader-fill * {
   right: 0;
   position: fixed;
   width: 100px;
+  z-index: 99999999;
 }
 
 html, body {
