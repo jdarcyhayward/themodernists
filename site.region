@@ -9,7 +9,7 @@
     if (window.location.href.indexOf('localhost')>-1)
         document.write('<link rel="stylesheet" href="/scripts/theme.css">');
     else 
-        document.write('<link rel="stylesheet" href="https://jdarcyhayward.github.io/modern/scripts/theme.css">');
+        document.write('<link rel="stylesheet" href="https://jdarcyhayward.github.io/themodernists/scripts/theme.css">');
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/scripts/theme.js"></script> 
