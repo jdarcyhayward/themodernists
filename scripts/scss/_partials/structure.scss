@@ -1,0 +1,382 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+#page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  min-width: calc(23 * var(--col-width));
+  padding: 0;
+  width: 100%;
+  
+  @include medium-down {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width-mobile);
+    width: 100%;
+  }
+  
+  &.wrapper--footer {
+    @include medium-up {
+      margin-left: auto;
+      margin-right: auto;
+      width: 84.025vw;
+    }
+  }
+  &.wrapper--full {
+    
+    @include medium-up {
+      margin-left: calc(2 * var(--margin));
+      margin-right: calc(2 * var(--margin));
+      max-width: calc(100vw - (4 * var(--margin)));
+      width: 100%;
+    }
+  }
+  &.wrapper--thin {
+    @include medium-up {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: calc(16 * var(--col-width));
+    }
+  }
+}
+@include medium-up {
+  
+  .wrapper {
+    
+    &.wrapper--ten-col {
+      min-width: calc(10 * var(--col-width));
+    }
+    &.wrapper--seventeen-col {
+      min-width: calc(17 * var(--col-width));
+    }
+  }
+}
+
+@include medium-down {
+  
+  .wrapper-mobile {
+    max-width: var(--max-width-mobile);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.flexible-layout {
+  margin: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &.grid--column {
+    flex-direction: column;
+  }
+}
+.row, .grid {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.offset-col {
+  margin-left: calc(-1 * var(--margin));
+  margin-right: calc(-1 * var(--margin));
+  width: calc( 100% + (2 * var(--margin)));
+}
+.offset-col--half {
+  margin-left: calc(-.5 * var(--margin));
+  margin-right: calc(-.5 * var(--margin));
+  width: calc( 100% + (1 * var(--margin)));
+}
+
+.pos--relative, .position--relative {
+  position: relative;
+}
+.vis--hidden {
+  visibility: hidden;
+}
+.overflow--hidden {
+  overflow: hidden;
+}
+
+.half-gutter {
+  .grid { margin: 0; }
+}
+
+/*
+  
+  colors
+  
+  */
+  
+.use-alt-bg {
+  background: var(--color-bg-light);
+}
+
+.shopify-section.remove-margin {
+  height: 0;
+  margin-top: calc(-1 * (var(--nav-height) - var(--announce-height)));
+}
+
+/*
+  */
+body {
+  
+  #page-content {
+    overflow: hidden;
+    width: 100%;  
+  }
+  &.page-addresses #page-content,
+  &.page-create-account #page-content,
+  &.page-account #page-content {
+    min-height: 100vh;
+  }  
+  &.customer-logged-in #page-content {
+    justify-content: flex-start;
+  }
+  
+  &.template-collection #page-content {
+    padding-top: var(--header-total-height) !important;
+  }
+  &.template-product #page-content {
+    padding-top: 0 !important;
+  } 
+  
+  &.template-blog,
+  &.template-index,
+  &.page-find-a-store,
+  &.page-find-a-stockist,
+  &.page--marginless {
+    
+    #page-content {
+      padding-top: var(--header-final);
+    }
+  }
+  &.template-article {
+    
+    #page-content {
+      padding-top: var(--header-final);
+      
+      @include medium-down {
+        padding-top: var(--header-total-height);  
+      }
+    }
+  }
+  &[class*="page"]:not(.template-index):not(.template-article) #page-content{
+    padding-top: var(--nav-height);
+  }
+}
+#isMobile{
+  display: none;
+  height: 0;
+  @include medium-down {
+    display: block;
+  }
+}
+.hide {
+  display: none !important;
+}
+.hide--medium-up {
+  
+  @include medium-up {
+    display: none !important;
+  }
+}
+.hide--medium-down {
+  
+  @include medium-down {
+    display: none !important;
+  }
+}
+.hide--large-down {
+  
+  @include large-down {
+    display: none !important;
+  }
+}
+.hide--large-up {
+  
+  @include large-up {
+    display: none !important;
+  }
+}
+
+.display--flex {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &.display--flex__column {
+    flex-direction: column;
+  }
+}
+.flex--flex {
+  flex: 1;
+  width: 100%;
+}
+.grid--new {
+  display: flex;
+  flex-wrap: wrap;
+  
+  @include medium-up {
+    
+    &.grid--new__nowrap {
+      flex-wrap: unset;
+    }
+  }
+}
+
+.flex {
+  flex: 1;
+}
+
+/*
+  
+  image
+  
+  */
+  
+.rimage-outer--outer {
+  position: relative;
+  width: 100%;
+}
+.rimage-outer-wrapper {
+  width: 100%;  
+}
+
+.rimage__image.rimage__image--cover {
+  object-fit: cover;
+}
+
+/*
+
+modals
+
+*/
+
+
+.cc-accordion-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.border--top {
+  border-top: 1px solid var(--color-border);
+}
+.border--bottom {
+  border-bottom: 1px solid var(--color-border)  ;
+}
+
+body {
+  
+  .screen-fade {
+    background: rgba(0, 0, 0, .2);
+    position: fixed;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    top: var(--header-height);
+    transition: all .675s $easeOutQuart;
+    width: 100vw;
+    z-index: 999;
+  }
+  &[data-cart-active] .screen-fade{
+    opacity: 1;  
+  }
+}
+
+body {
+  .sqs-block.sqs-block-editable:not(.sqs-block-editing) {
+    border: 2px solid blue;
+    margin: 10px 40px;
+  }
+  &:not(.admin):not(.squarespace-config) {
+  
+    .Site {
+      display: none;
+      overflow: hidden;
+    }
+  }
+  &.admin, &.squarespace-config {
+    
+    .Mobile, .Header {
+      display: none;
+    }  
+   .Site {
+      padding: 0 100px;
+    }
+  }
+}
+
+// ===============
+//  container
+// ===============
+
+#container {
+  background: var(--colorBG);
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  
+  @include medium-down {
+    flex-wrap: wrap;
+    position: relative;;
+  }
+  
+    #track {
+      display: flex;
+      height: 100vh;
+      position: relative;
+      width: 29999px;
+      
+      @include medium-down {
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+      }
+    }
+}
+
+.section {
+  min-height: 100vh;
+  position: relative;
+  
+  @include medium-down {
+  }
+}
+
+// ===============
+//  block
+// ===============
+
+.sqs-block {  }
+
+// ===============
+//  footer
+// ===============
+
+body > svg {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+
+:root{ scrollbar-width: none }

@@ -1,0 +1,521 @@
+
+@font-face {
+  font-family: safiro;
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://jdarcyhayward.github.io/modern/scripts/Safiro.ttf);
+}
+
+@font-face {
+  font-family: eiko;
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://jdarcyhayward.github.io/modern/scripts/PPEiko-Regular.ttf);
+}
+
+:root {
+  
+  
+  --colorBG: #f5f5f5;
+  --colorFooterBG: #4e4b4b;
+  --colorFooterBG: #222;
+  --colorFooterType: var(--colorBG);
+  --color-bg-light: #f8f8f8;
+  --color-bg-grey: #e4dedc;
+  
+  --dark-brown: #422715;
+  --brown: #875c34;
+  --color-bg-dark: #56524a;
+  --color-bg-dark-lighter: #625e57; 
+  --color-bg-dark-rgba: rgba(44, 43, 39, .9);
+  
+  --color-type: #4e4b4b;
+  --colorType: var(--color-type);
+  --color-type-alt: #c9b6a0;
+  --color-type-lighter: #938785;
+  
+  --color-type-dark: #ede4e3;
+  --color-type-darker: #c9c3b8;
+  --color-dark-active: #e4e2ef;
+  
+  --colorBorder: #e7e3e2; 
+  --color-border-opacity: rgba(86, 82, 73, .15);
+  --color-border-light: #46443f;
+  --color-border-dark: #76726a;
+  
+  // ===============================
+  // footer
+  // ===============================
+  
+  --colorBorderFooter: rgba(255, 255, 255, .15);
+  
+  --color-footer-link: #b7b5a7;
+  
+  --announce-height: calc(0 * var(--margin));
+  --header-final: calc(4.75 * var(--margin)); // update on announce update
+  --header-total-height: 135px;
+  --page-min-height: calc(100vh - var(--announce-height));
+  
+  --margin: clamp(10.5px, 1.25vw, 20px);
+  
+  --headerWidth: 100px;
+  
+  --col-width: calc((100vw - var(--headerWidth) - (2 * var(--margin))) / 25);
+  --colWidth: var(--col-width);
+  --col-width-mobile: calc(var(--max-width-mobile) / 8);
+  
+  --max-width: calc((100vw  - var(--headerWidth) - (2 * var(--margin) )) * 23 / 25);  
+  --max-width: calc(23 * var(--col-width));
+  --max-width-mobile: calc(100vw - (2 * var(--margin)));
+
+  --letter-spacing: 0.0975rem;
+  
+  --logo-size: 2.125rem; 
+  --logo-size-mobile: 1.875rem;
+  
+  --type-size: 12.175px;
+  --type-size-clamp: clamp(12.175px, .925vw, var(--type-size));
+  --type-size-clamp: clamp(11.175px, .925vw, 12.75px);
+  --type-size-larger: calc(1.175 * var(--type-size-clamp));
+  --typeSizeHeading: clamp(1.2rem, .9vw, 1.8rem);
+  --type-size-heading: var(--typeSizeHeading);
+  --letterSpacingHeading: -0.0225vw;
+  
+  --type-size-heading-smaller: 1.025rem;
+  --type-size-tagline: 1.125vw;
+  --type-size-heading-mobile: 4.125vw;
+  --type-size-tagline-mobile: 3.675vw; 
+  --type-size-small: calc(.875 * var(--type-size-clamp));
+  --type-size-small-mobile: calc(.925 * var(--type-size));
+  --type-size-smaller: calc(.775 * var(--type-size-clamp));
+  --type-size-super: calc(var(--max-width) / 16);
+  
+  --box-offset: 0;
+  --box-top: 0;
+  
+  --easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+  
+}
+
+//$max-width: calc((100vw - #{ 4 * $margin} ) * 12 / 13);
+//$col-width: calc($max-width / 24); 
+
+$color-bg: #fff;
+$color-bg-dark: #000;
+$color-font: #000;
+$color-font-light: #fff;
+$color-border: #eee;
+
+$mobile-break: 680px;
+$tablet-break: 960px;
+$desktop-break: 1180px;
+
+$easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+
+@mixin medium-down {
+  @media (max-width: #{$mobile-break}) {
+    @content;
+  }
+}
+
+@mixin medium-up {
+  @media (min-width: calc(#{$mobile-break} + 1px)) {
+    @content;
+  }
+  
+}
+
+@mixin large-down {
+  @media (max-width: #{$tablet-break}) {
+    @content;
+  }
+}
+@mixin large-up {
+  @media (min-width: calc(#{$tablet-break} + 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-break + 1px}) and (max-width: #{$tablet-break}) {
+    @content;
+  }
+}
+
+/*================ Media Query Mixin ================*/
+
+@mixin media-query($media-query) {
+  
+  @each $breakpoint in $grid-breakpoints {
+    
+    $name: nth($breakpoint, 1);
+    
+    $declaration: nth($breakpoint, 2);
+
+    @if $media-query == $name and $declaration {
+      
+      @media only screen and #{$declaration} {
+        
+        @content;
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+/*============================================================================
+  Grid Breakpoints and Class Names
+    - Do not change breakpoint variable names
+    - Medium breakpoint is also set in theme.js.liquid and inline
+    throughout some templates. Be weary of changing unless you know what you're doing.
+==============================================================================*/
+
+$grid-medium: 769px;
+
+$grid-large: 960px;
+
+$grid-widescreen: 1050px;
+
+$small: 'small';
+
+$medium: 'medium';
+
+$medium-down: 'medium-down';
+
+$medium-up: 'medium-up';
+
+$large: 'large';
+
+$large-down: 'large-down';
+
+$large-up: 'large-up';
+
+$widescreen: 'widescreen';
+
+$grid-breakpoint-has-widths: ($small, $medium-down, $medium-up, $large-down, $large-up, $widescreen);
+
+$grid-breakpoint-has-utility: ($small, $medium-down, $medium-up, $large-down, $large-up, $widescreen);
+
+$grid-breakpoint-has-push: ($medium-up, $widescreen);
+
+// The `$grid-breakpoints` list is used to build our media queries.
+
+// You can use these in the media-query mixin.
+
+$grid-breakpoints: (
+  $small '(max-width: #{$grid-medium - 1})',
+  $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
+  $medium-down '(max-width: #{$grid-medium - 1})',
+  $medium-up '(min-width: #{$grid-medium})',
+  $large '(min-width: #{$grid-large}) and (max-width: #{$grid-large - 1})',
+  $large-down '(max-width: #{$grid-large - 1})',
+  $large-up '(min-width: #{$grid-large})',
+  $widescreen '(min-width: #{$grid-widescreen})'
+);
+
+/*============================================================================
+  Grid Columns
+    - Create width classes, prepended by the breakpoint name.
+==============================================================================*/
+
+@mixin grid-column-generator($grid-breakpoint-type: '') {
+  /* Whole */
+  .#{$grid-breakpoint-type}one-whole { width: 100%; }
+
+  /* Halves */
+  .#{$grid-breakpoint-type}one-half { width: percentage(1 / 2); }
+
+  /* Thirds */
+  .#{$grid-breakpoint-type}one-third { width: percentage(1 / 3); }
+  .#{$grid-breakpoint-type}two-thirds { width: percentage(2 / 3); }
+
+  /* Quarters */
+  .#{$grid-breakpoint-type}one-quarter { width: percentage(1 / 4); }
+  .#{$grid-breakpoint-type}two-quarters { width: percentage(2 / 4); }
+  .#{$grid-breakpoint-type}three-quarters { width: percentage(3 / 4); }
+
+  /* Fifths */
+  .#{$grid-breakpoint-type}one-fifth { width: percentage(1 / 5); }
+  .#{$grid-breakpoint-type}two-fifths { width: percentage(2 / 5); }
+  .#{$grid-breakpoint-type}three-fifths { width: percentage(3 / 5); }
+  .#{$grid-breakpoint-type}four-fifths { width: percentage(4 / 5); }
+
+  /* Sixths */
+  .#{$grid-breakpoint-type}one-sixth { width: percentage(1 / 6); }
+  .#{$grid-breakpoint-type}two-sixths { width: percentage(2 / 6); }
+  .#{$grid-breakpoint-type}three-sixths { width: percentage(3 / 6); }
+  .#{$grid-breakpoint-type}four-sixths { width: percentage(4 / 6); }
+  .#{$grid-breakpoint-type}five-sixths { width: percentage(5 / 6); }
+
+  /* Eighths */
+  .#{$grid-breakpoint-type}one-eighth { width: percentage(1 / 8); }
+  .#{$grid-breakpoint-type}two-eighths { width: percentage(2 / 8); }
+  .#{$grid-breakpoint-type}three-eighths { width: percentage(3 / 8); }
+  .#{$grid-breakpoint-type}four-eighths { width: percentage(4 / 8); }
+  .#{$grid-breakpoint-type}five-eighths { width: percentage(5 / 8); }
+  .#{$grid-breakpoint-type}six-eighths { width: percentage(6 / 8); }
+  .#{$grid-breakpoint-type}seven-eighths { width: percentage(7 / 8); }
+
+  /* Tenths */
+  .#{$grid-breakpoint-type}one-tenth { width: percentage(1 / 10); }
+  .#{$grid-breakpoint-type}two-tenths { width: percentage(2 / 10); }
+  .#{$grid-breakpoint-type}three-tenths { width: percentage(3 / 10); }
+  .#{$grid-breakpoint-type}four-tenths { width: percentage(4 / 10); }
+  .#{$grid-breakpoint-type}five-tenths { width: percentage(5 / 10); }
+  .#{$grid-breakpoint-type}six-tenths { width: percentage(6 / 10); }
+  .#{$grid-breakpoint-type}seven-tenths { width: percentage(7 / 10); }
+  .#{$grid-breakpoint-type}eight-tenths { width: percentage(8 / 10); }
+  .#{$grid-breakpoint-type}nine-tenths { width: percentage(9 / 10); }
+
+  /* Twelfths */
+  .#{$grid-breakpoint-type}one-twelfth { width: percentage(1 / 12); }
+  .#{$grid-breakpoint-type}two-twelfths { width: percentage(2 / 12); }
+  .#{$grid-breakpoint-type}three-twelfths { width: percentage(3 / 12); }
+  .#{$grid-breakpoint-type}four-twelfths { width: percentage(4 / 12); }
+  .#{$grid-breakpoint-type}five-twelfths { width: percentage(5 / 12); }
+  .#{$grid-breakpoint-type}six-twelfths { width: percentage(6 / 12); }
+  .#{$grid-breakpoint-type}seven-twelfths { width: percentage(7 / 12); }
+  .#{$grid-breakpoint-type}eight-twelfths { width: percentage(8 / 12); }
+  .#{$grid-breakpoint-type}nine-twelfths { width: percentage(9 / 12); }
+  .#{$grid-breakpoint-type}ten-twelfths { width: percentage(10 / 12); }
+  .#{$grid-breakpoint-type}eleven-twelfths { width: percentage(11 / 12); }
+  
+  .#{$grid-breakpoint-type}one-col { width: calc(var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}two-col { width: calc(2 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}three-col { width: calc(3 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}four-col { width: calc(4 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}five-col { width: calc(5 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}six-col { width: calc(6 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}seven-col { width: calc(7 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}eight-col { width: calc(8 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}nine-col { width: calc(9 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}ten-col { width: calc(10 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}eleven-col { width: calc(11 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twelve-col { width: calc(12 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}thirteen-col { width: calc(13 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}fourteen-col { width: calc(14 * var(--col-width) - 0.1px ); }  
+  .#{$grid-breakpoint-type}fifteen-col { width: calc(15 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}sixteen-col { width: calc(16 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}seventeen-col { width: calc(17 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}eighteen-col { width: calc(18 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}nineteen-col { width: calc(19 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-col { width: calc(20 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-one-col { width: calc(21 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-two-col { width: calc(22 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-three-col { width: calc(23 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-four-col { width: calc(24 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-five-col { width: calc(25 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-six-col { width: calc(26 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-seven-col { width: calc(27 * var(--col-width) - 0.1px ); }
+  .#{$grid-breakpoint-type}twenty-eight-col { width: calc(28 * var(--col-width) - 0.1px ); }
+  
+  .#{$grid-breakpoint-type}one-col-mobile { width: calc(var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}two-col-mobile { width: calc(2 * var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}three-col-mobile { width: calc(3 * var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}four-col-mobile { width: calc(4 * var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}six-col-mobile { width: calc(6 * var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}eight-col-mobile { width: calc(8 * var(--col-width-mobile) - 0.1px ); }
+  
+  .#{$grid-breakpoint-type}one-col-mobile-offset { margin-left: calc(var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}two-col-mobile-offset { margin-left: calc(2 * var(--col-width-mobile) - 0.1px ); }
+  .#{$grid-breakpoint-type}three-col-mobile-offset { margin-left: calc(3 * var(--col-width-mobile) - 0.1px ); }
+  
+  .#{$grid-breakpoint-type}minus-one-top-col-offset { margin-top: calc(-1 * var(--col-width) - var(--margin)); }
+  .#{$grid-breakpoint-type}minus-two-top-col-offset { margin-top: calc(-2 * var(--col-width) - (2 * var(--margin))); }
+  .#{$grid-breakpoint-type}minus-three-top-col-offset { margin-top: calc(-3 * var(--col-width) - var(--margin)); }
+  .#{$grid-breakpoint-type}minus-four-top-col-offset { margin-top: calc(-4 * var(--col-width) - var(--margin)); }
+  .#{$grid-breakpoint-type}minus-six-top-col-offset { margin-top: calc(-6 * var(--col-width) - var(--margin)); }
+  
+  .#{$grid-breakpoint-type}minus-one-col-offset { margin-left: calc(-1 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-two-col-offset { margin-left: calc(-2 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-three-col-offset { margin-left: calc(-3 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-four-col-offset { margin-left: calc(-4 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-six-col-offset { margin-left: calc(-6 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-eight-col-offset { margin-left: calc(-8 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-nine-col-offset { margin-left: calc(-9 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-ten-col-offset { margin-left: calc(-10 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-twelve-col-offset { margin-left: calc(-12 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-fourteen-col-offset { margin-left: calc(-14 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-fifteen-col-offset { margin-left: calc(-15 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-sixteen-col-offset { margin-left: calc(-16 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-twenty-four-col-offset { margin-left: calc(-24 * var(--col-width) ); }
+  
+  .#{$grid-breakpoint-type}minus-one-rcol-offset { margin-right: calc(-1 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-two-rcol-offset { margin-right: calc(-2 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-three-rcol-offset { margin-right: calc(-3 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-four-rcol-offset { margin-right: calc(-4 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-six-rcol-offset { margin-right: calc(-6 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-eight-rcol-offset { margin-right: calc(-8 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-nine-rcol-offset { margin-right: calc(-9 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-ten-rcol-offset { margin-right: calc(-10 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-twelve-rcol-offset { margin-right: calc(-12 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-sixteen-rcol-offset { margin-right: calc(-16 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}minus-twenty-four-rcol-offset { margin-right: calc(-24 * var(--col-width) ); }
+  
+  .#{$grid-breakpoint-type}one-col-offset { margin-left: calc(var(--col-width) ); }
+  .#{$grid-breakpoint-type}two-col-offset { margin-left: calc(2 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}three-col-offset { margin-left: calc(3 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}four-col-offset { margin-left: calc(4 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}six-col-offset { margin-left: calc(6 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}seven-col-offset { margin-left: calc(7 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}eight-col-offset { margin-left: calc(8 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}nine-col-offset { margin-left: calc(9 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}ten-col-offset { margin-left: calc(10 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}eleven-col-offset { margin-left: calc(11 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}twelve-col-offset { margin-left: calc(12 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}thirteen-col-offset { margin-left: calc(13 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}fourteen-col-offset { margin-left: calc(14 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}fifteen-col-offset { margin-left: calc(15 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}sixteen-col-offset { margin-left: calc(16 * var(--col-width) ); }
+  .#{$grid-breakpoint-type}twenty-four-col-offset { margin-left: calc(24 * var(--col-width) ); }
+  
+  .#{$grid-breakpoint-type}padding-bottom                   { padding-bottom: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-bottom-double            { padding-bottom: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-bottom-triple            { padding-bottom: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-bottom-quad              { padding-bottom: calc(4 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}padding-top                      { padding-top: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-top-double               { padding-top: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-top-triple               { padding-top: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-top-quad                 { padding-top: calc(4 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}padding-left                     { padding-left: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-left-double              { padding-left: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-left-triple              { padding-left: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-left-quad                { padding-left: calc(4 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}padding-right                    { padding-right: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-right-double             { padding-right: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-right-triple             { padding-right: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}padding-right-quad               { padding-right: calc(4 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}margin-bottom-none               { margin-bottom: 0; }
+  .#{$grid-breakpoint-type}margin-bottom                    { margin-bottom: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-double             { margin-bottom: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-triple             { margin-bottom: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-quad               { margin-bottom: calc(4 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-oct                { margin-bottom: calc(8 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-dodec              { margin-bottom: calc(12 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-bottom-hexakaideca        { margin-bottom: calc(16 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}margin-top-col                { margin-top: calc(1 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}margin-top-double-col         { margin-top: calc(2 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-top-triple-col         { margin-top: calc(3 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-top-quad-col           { margin-top: calc(4 * (var(--col-width) - 1px)); }
+  
+  .#{$grid-breakpoint-type}margin-top                    { margin-top: calc(1 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-double             { margin-top: calc(2 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-triple             { margin-top: calc(3 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-quad               { margin-top: calc(4 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-oct                { margin-top: calc(8 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-dodec              { margin-top: calc(12 * var(--margin) ); }
+  .#{$grid-breakpoint-type}margin-top-hexakaideca        { margin-top: calc(16 * var(--margin) ); }
+  
+  .#{$grid-breakpoint-type}margin-bottom-col                { margin-bottom: calc(1 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}margin-bottom-double-col         { margin-bottom: calc(2 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}margin-bottom-triple-col         { margin-bottom: calc(3 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}margin-bottom-quad-col           { margin-bottom: calc(4 * (var(--col-width) + 1px)); }
+  
+  .#{$grid-breakpoint-type}margin-left                    { margin-left: calc(1 * var(--margin)); }
+  .#{$grid-breakpoint-type}margin-left-double             { margin-left: calc(2 * var(--margin)); }
+  .#{$grid-breakpoint-type}margin-left-triple             { margin-left: calc(3 * var(--margin)); }
+  .#{$grid-breakpoint-type}margin-left-quad               { margin-left: calc(4 * var(--margin)); }
+  
+  .#{$grid-breakpoint-type}margin-right                    { margin-right: calc(1 * var(--margin)) }
+  .#{$grid-breakpoint-type}margin-right-double             { margin-right: calc(2 * var(--margin)) }
+  .#{$grid-breakpoint-type}margin-right-triple             { margin-right: calc(3 * var(--margin)) }
+  .#{$grid-breakpoint-type}margin-right-quad               { margin-right: calc(4 * var(--margin)) }
+  
+  .#{$grid-breakpoint-type}margin-left-col                { margin-left: calc(1 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}margin-left-double-col         { margin-left: calc(2 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-left-triple-col         { margin-left: calc(3 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-left-quad-col           { margin-left: calc(4 * (var(--col-width) - 1px)); }
+  
+  .#{$grid-breakpoint-type}margin-right-col                { margin-right: calc(1 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}margin-right-double-col         { margin-right: calc(2 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-right-triple-col         { margin-right: calc(3 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}margin-right-quad-col           { margin-right: calc(4 * (var(--col-width) - 1px)); } 
+  
+  
+  
+  
+  
+  
+  
+  .#{$grid-breakpoint-type}padding-left-col               { padding-left: calc(1 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}padding-left-single-half-col   { padding-left: calc(1.5 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-left-double-col        { padding-left: calc(2 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}padding-left-triple-col        { padding-left: calc(3 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}padding-left-quad-col          { padding-left: calc(4 * (var(--col-width) - 1px)); }
+  
+  .#{$grid-breakpoint-type}padding-right-col               { padding-right: calc(1 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}padding-right-single-half-col   { padding-right: calc(1.5 * (var(--col-width) - 1px)) }
+  .#{$grid-breakpoint-type}padding-right-double-col        { padding-right: calc(2 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}padding-right-triple-col        { padding-right: calc(3 * (var(--col-width) - 1px)); }
+  .#{$grid-breakpoint-type}padding-right-quad-col          { padding-right: calc(4 * (var(--col-width) - 1px)); }
+  
+  .#{$grid-breakpoint-type}padding-bottom-col               { padding-bottom: calc(1 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-bottom-single-half-col   { padding-bottom: calc(1.5 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-bottom-double-col        { padding-bottom: calc(2 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}padding-bottom-triple-col        { padding-bottom: calc(3 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}padding-bottom-quad-col          { padding-bottom: calc(4 * (var(--col-width) + 1px)); }
+  
+  .#{$grid-breakpoint-type}padding-top-col-half             { padding-top: calc(.5 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-top-col                  { padding-top: calc(1 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-top-single-half-col      { padding-top: calc(1.5 * (var(--col-width) + 1px)) }
+  .#{$grid-breakpoint-type}padding-top-double-col           { padding-top: calc(2 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}padding-top-triple-col           { padding-top: calc(3 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}padding-top-quad-col             { padding-top: calc(4 * (var(--col-width) + 1px)); }
+  .#{$grid-breakpoint-type}padding-top-hexa-col             { padding-top: calc(6 * (var(--col-width) + 1px)); }
+  
+  .#{$grid-breakpoint-type}aspect--two-one                   { aspect-ratio: 2 / 1; }
+  .#{$grid-breakpoint-type}aspect--sixteen-nine              { aspect-ratio: 16 / 9; }
+  .#{$grid-breakpoint-type}aspect--three-two                 { aspect-ratio: 3 / 2; }
+  .#{$grid-breakpoint-type}aspect--four-three                { aspect-ratio: 4 / 3; }
+  .#{$grid-breakpoint-type}aspect--five-four                 { aspect-ratio: 5 / 4; }
+  .#{$grid-breakpoint-type}aspect--one-one                   { aspect-ratio: 1 / 1; }
+  .#{$grid-breakpoint-type}aspect--four-five                 { aspect-ratio: 4 / 5; }
+  .#{$grid-breakpoint-type}aspect--two-three                 { aspect-ratio: 2 / 3; }
+  .#{$grid-breakpoint-type}aspect--nine-sixteen              { aspect-ratio: 9 / 16; }
+  
+  .#{$grid-breakpoint-type}flex-align--start      { align-items: flex-start; }
+  .#{$grid-breakpoint-type}flex-align--center     { align-items: center; }
+  .#{$grid-breakpoint-type}flex-align--end        { align-items: flex-end; }
+  .#{$grid-breakpoint-type}flex-justify--start    { justify-content: flex-start; }
+  .#{$grid-breakpoint-type}flex-justify--center   { justify-content: center; }
+  .#{$grid-breakpoint-type}flex-justify--end      { justify-content: flex-end; }
+  .#{$grid-breakpoint-type}flex-justify--between  { justify-content: space-between; }
+  .#{$grid-breakpoint-type}flex-justify--stretch  { 
+    justify-content: unset; 
+    > div, > div > div, > div > div > div { display: flex; flex: 1; flex-direction: column; }
+    img {
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+/*================ Build Base Grid Classes ================*/
+
+@include grid-column-generator();
+
+/*================ Build Responsive Grid Classes ================*/
+
+@each $breakpoint in $grid-breakpoint-has-widths {
+  
+  @include media-query($breakpoint) {
+    
+    @include grid-column-generator('#{$breakpoint}--');
+  }
+}
+
+/* mobile variables */
+@include medium-down {
+  :root {
+    --margin: 20px;
+  }
+}

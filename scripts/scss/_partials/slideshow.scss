@@ -1,0 +1,60 @@
+.fill-viewport,
+.height--full .text-column,
+.height--full .text-column__image, 
+.height--full .text-column__image__inner,
+.height--full .rimage-outer-wrapper, 
+.height--full .placeholder-image, 
+.height--full.video-container {
+  height: 100%;
+  
+  .rimage-wrapper[class*="aspect--"] {
+    aspect-ratio: unset;
+    height: 100%;
+  }
+}
+.section-slideshow:first-child {
+  margin-top: calc(-1 * var(--nav-height));
+  
+  .slideshow--content {
+    padding-top: var(--nav-height);
+  }
+}
+
+.slideshow--content {
+  bottom: 0;
+  display: flex;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  
+}
+
+
+.slideshow--content {
+  
+  .wrapper {
+    display: flex;
+  }
+  
+  &.position--bottom {
+    align-items: flex-end;
+  }
+  
+  &.position--center {
+    align-items: center;
+  }
+}
+
+
+.slideshow[data-transition="slide"] .slide.slick-active .feature-subheader, .slideshow[data-transition="slide"] .slide.slick-active #comments .comment .comment-date, #comments .comment .slideshow[data-transition="slide"] .slide.slick-active .comment-date, .slideshow[data-transition="slide"] .slide.slick-active .line-1, .slideshow[data-transition="slide"] .slide.slick-active .line-2, .slideshow[data-transition="slide"] .slide.slick-active .line-3 {
+  transition: all .375s $easeOutQuart;
+  transition-delay: 0s;
+}
+
+.slideshow--content {
+  
+  h2 {
+    margin-bottom: var(--col-width);
+  }  
+}

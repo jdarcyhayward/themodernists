@@ -1,0 +1,137 @@
+.more-colors {
+  display: flex;
+  margin: calc(.5 * var(--margin)) 0 0;
+  z-index: 5;
+  
+  @include medium-down {
+    display: none; 
+  }
+}
+
+.more-colors {
+  
+  ul, ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    display: flex;
+    height: calc(.4 * var(--margin));
+    z-index: 1;
+  }
+  ul li {
+    margin: 0 calc(1 * var(--margin)) 0 0;
+  }
+  
+  .heading {
+    font-size: 87.5%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
+    transition: all .375s $easeOutQuart;
+    white-space: nowrap;
+  }  
+}
+.more-colors li {
+  
+  label {
+    display: none;
+  }
+  
+  .swatch {
+    border-radius: 99px;
+    box-shadow: 0 0 0 1px var(--color-border);
+    display: block;
+    height: calc(.4 * var(--margin));
+    overflow: hidden;
+    position: relative;
+    width: calc(.4 * var(--margin));
+    transition: all .375s $easeOutQuart;
+    
+    img {
+      left: 0;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+    }
+  }
+  
+  a:hover .swatch {  }    
+}
+
+.product-block {
+  
+  &:hover { 
+    
+    .heading {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    li {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.product-detail__form {
+  
+  .more-colors {
+    margin: calc(-.5 * var(--margin)) 0 0 var(--col-width);
+    padding: 0;
+    position: relative;
+    
+    .heading { display: none; }
+    
+    ul {
+      display: flex;
+      flex-direction: row;
+      margin: #{1.5 * $margin} 0 #{.5 * $margin};
+    }
+    
+    ul li {
+      margin: 0 #{$margin} 0 0;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.product-block {
+  
+  .options {
+    position: relative;
+    
+    [href="#options"] {
+      
+      @include medium-up {
+        position: absolute;
+        transition: all .375s $easeOutQuart;
+      }
+    }
+    .options--container {
+      opacity: 0;
+      transition: all .375s $easeOutQuart;
+      
+      @include medium-down {
+        opacity: 1;
+      }
+    }
+  }  
+  
+  @include medium-up {
+    
+    &:hover .options {
+      
+      [href="#options"] {
+        opacity: 0; 
+      }
+      .options--container {
+        opacity: 1;  
+      }
+    }
+  }
+}

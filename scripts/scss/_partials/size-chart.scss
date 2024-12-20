@@ -1,0 +1,166 @@
+.size-chart {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--type-size-small);
+  padding: 0;
+  max-width: 9999px;
+  width: 100%;
+}
+
+.size-chart {
+  
+  table {
+    display: table;
+    width: 100%;
+  }  
+}
+
+.size-chart table {
+  
+  th, td {
+    border-bottom: 1px solid var(--color-border);
+    padding: calc(.5 * var(--margin)) calc(.25 * var(--margin));
+    text-align: left;  
+    transition: all .375s $easeOutQuart;
+    
+    &.active {
+      background: rgba(#D9D9D9, .20);
+    }
+  }
+  th {
+    font-weight: 400;
+    padding-top: calc(1 * var(--margin));
+    padding-bottom: calc(1 * var(--margin));
+    text-align: center;
+    
+    &:first-child {
+      text-align: left;
+    }
+  }
+  td, th {
+    
+    &:not(:first-child) {
+      width: 10%;
+    }
+  }
+}
+
+.chart--header {
+  border: 1px solid var(--color-border);
+  border-width: 1px 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0 0 1px calc(-1 * var(--margin));
+    padding: 0;
+    
+    @include medium-down {
+      margin: 0 calc(-.5 * var(--margin)) 1px;  
+    }
+  }
+  ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    cursor: pointer;
+    font-weight: 300;
+    margin: 0 calc(1 * var(--margin)) -1px;
+    padding: calc(1 * var(--margin)) 0;
+    transition: all .375s $easeOutQuart;
+    @include medium-down {
+      margin: 0 calc(.5 * var(--margin)) -1px;
+    }
+    
+    &.active {
+      border-bottom: 1px solid var(--color-type);
+    }
+  }
+}
+
+.size-chart table {
+  
+  .values {
+    position: relative;
+  }
+  span {
+    opacity: 0;
+  }
+  span.both,
+  &[data-value="cm"] span.cm, 
+  &[data-value="in"] span.in {
+    opacity: 1;
+  }
+  
+  td {
+    
+    span {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      text-align: center;
+      transition: all .375s $easeOutQuart;
+    }
+    &:first-child span {
+      justify-content: flex-start;
+    }
+    span.cm {
+      position: relative;
+    }
+    span.in {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }  
+}
+
+.size-chart--container {
+  flex: 1;
+  overflow: auto;
+}
+.size-chart--content {
+  overflow: hidden;
+  position: relative; 
+  
+  .tab {
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    &:first-child {
+      position: relative;  
+    }
+  }
+  .tab {
+    opacity: 0;
+    pointer-events: none;
+    transition: all .375s $easeOutQuart;
+    
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+// modal
+
+#size-chart-modal .theme-modal--inner {
+  
+  @include medium-up {
+    height: calc(10 * var(--col-width));
+    width: calc(14 * var(--col-width));
+  }
+}
+
+.theme-modal .size-chart {
+  flex: 1;
+  overflow: auto;
+}

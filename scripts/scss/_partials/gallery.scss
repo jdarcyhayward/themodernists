@@ -1,0 +1,42 @@
+.section-gallery .cc-gallery.gallery--with-margins {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  
+  outer
+  
+  */
+  
+.section-gallery .cc-gallery.gallery--with-margins:not(.gallery--with-vertical-outer-padding) {
+  margin: 0;
+  padding: 0;
+}
+.section-gallery .wrapper .cc-gallery.gallery--with-margins:not(.gallery--not-full-width) .gallery__row {
+  margin: 0 calc(-1 * var(--margin) / 2);
+}
+
+/*
+  
+  element
+  
+  */
+
+.section-gallery .cc-gallery.gallery--with-margins .gallery__item {
+  margin: 0 calc(var(--margin) / 2) calc(var(--margin) / 2);
+}
+
+/*
+  
+  overlay
+  
+  */
+
+.section-gallery .cc-gallery .gallery__row .gallery__item .overlay-type {
+  padding: var(--col-width);
+}
+.section-gallery .cc-gallery:not(.gallery--with-margins) .gallery__row .gallery__item .overlay-type {
+ padding: calc( var(--col-width) + var(--margin)); 
+}
+

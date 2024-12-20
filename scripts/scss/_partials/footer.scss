@@ -1,0 +1,210 @@
+.section--footer {
+  background: var(--colorFooterBG);
+}
+.section--footer, .section--footer a {
+  color: var(--colorFooterType);
+}
+
+.section.section--footer.section--content {
+  
+  > .wrapper > .grid {
+    justify-content: space-between;
+  }
+  
+  .content--header, .content--footer {
+    flex: unset;
+  }
+  .grid--content {
+    flex: 1;
+    padding: calc(1 * var(--col-width)) 0;
+    
+    @include medium-down {
+      padding: calc(2 * var(--margin)) 0;
+    }
+  }
+}
+
+.section--footer {
+  
+  .footer--inner-col {  
+    display: flex;
+    flex-direction: column;
+  }
+  [dataColIndex="1"] {
+      justify-content: flex-end;
+  }
+  [dataColIndex="3"] {
+      justify-content: space-between;
+  }
+}
+
+.section--footer {
+  
+  .image-col {
+    position: relative;
+    
+    @include medium-down {
+      padding: calc(2 * var(--margin)) 0;
+    }
+    
+    img {
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      
+      @include medium-down {
+        height: auto;
+        position: relative;
+      }
+    }
+  }
+}
+
+.section--footer {
+  
+  .newsletter-block {
+    width: 100%;
+  }
+}
+
+body .form-block .form-wrapper {
+  
+  .field-list {
+    display: flex;
+    flex-wrap: wrap;
+    
+    fieldset{
+      border: none;
+      column-gap: unset;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      
+      legend {
+        margin: 0 0 calc(1 * var(--margin));
+        padding: 0;
+      }
+      .field {
+        border-top: none !important;
+        padding-top: 0;
+      }
+    }
+    .title {
+      
+      .description {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .field-list .field {
+    border-top: 1px solid var(--colorBorderFooter);
+    margin: 0 !important;
+    padding: calc(1 * var(--margin)) 0;
+    width: 50%;
+    
+    &.textarea, 
+    &.textarea:nth-child(2n) {
+      border-right: none;
+      border-bottom: 1px solid var(--colorBorderFooter);
+      width: 100%;
+    }
+    &:nth-child(2n){
+      border-right: 1px solid var(--colorBorderFooter);
+    }
+    &:nth-child(2n+1){
+      padding-left: calc(1 * var(--margin));
+    }
+  }
+  .field-list .field {
+    
+    .option {
+      margin: calc(.5 * var(--margin)) 0 calc(-.5 * var(--margin));
+    }
+    input, textarea {
+      background: transparent none;
+      border: none;
+      margin: calc(.5 * var(--margin)) 0 0;
+      padding: 0;
+      
+      &[type="checkbox"]{
+        margin: 0 calc(.5 * var(--margin)) 0 0;  
+      }
+    }
+    textarea {
+      min-height: 40px;
+    }
+  }
+  
+  .form-submit-button, 
+  .form-submit-button:hover, 
+  .form-submit-button.sqs-editable-button, 
+  .form-submit-button.sqs-editable-button:hover {
+    align-items: center;
+    background: transparent none;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    font-family: safiro;
+    font-size: var(--typeSizeHeading);
+    letter-spacing: var(--letterSpacingHeading);
+    margin: calc(2 * var(--margin)) 0 0;
+    padding: 0;
+    text-transform: none;
+    transition: all .375s var(--easeOutQuart);
+    
+    &:before {
+      border-top: 1px solid var(--colorBorder);
+      content: '';
+      margin-right: calc(1 * var(--margin));
+      width: calc(1 * var(--col-width));
+    }
+  }
+  .form-submit-button:hover, 
+  .form-submit-button.sqs-editable-button:hover {
+    opacity: .5;
+  }
+}
+
+//===================
+// footer specific form
+//===================
+
+body .section--footer {
+  
+  .form-block .form-wrapper {
+  
+    .field-list .field {
+      border-top: 1px solid var(--colorBorderFooter);  
+      
+      input, textarea {
+        color: var(--colorFooterType);
+        font-family: safiro;
+        font-size: inherit;
+        
+        &[type="checkbox"]{
+          border: 1px solid var(--colorBorderFooter);
+          transform: translateY(-1px);
+        }
+      }
+    }
+    .form-submit-button,
+    .form-submit-button:hover,
+    .form-submit-button.sqs-editable-button, 
+    .form-submit-button.sqs-editable-button:hover {
+      background: transparent none !important;
+      color: var(--colorFooterType) !important;
+    
+      &:before {
+        border-top: 1px solid var(--colorBorderFooter);
+      }
+    }
+  }
+}
+
+// form
+
+.form-field-error {
+  transform: translateY(calc(-1 * var(--margin)));
+}

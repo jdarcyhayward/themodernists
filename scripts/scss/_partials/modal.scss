@@ -1,0 +1,134 @@
+.theme-modal {
+  background: transparent none;
+  color: inherit;
+  
+  &:before {
+    background: rgba(0, 0, 0, .2);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+nav.theme-modal {
+  
+  &:before {
+    display: none;
+  }
+}
+.theme-modal.theme-modal--new {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  z-index: 101;
+  
+  .theme-modal--inner, .inner {
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    margin: var(--col-width);
+    max-height: calc(100vh - (2 * var(--col-width)));
+    max-width: calc(var(--max-width) + 2 * var(--margin));
+    overflow: auto;
+    padding: calc(2 * var(--margin));
+    position: relative;
+    width: 100%;
+    
+    @include medium-down {
+      max-height: 9999px;
+      max-width: 9999px;
+      padding: calc(1 * var(--margin));
+    }
+    
+    .inner {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+  }
+  .inner {
+    max-height: 100%;
+    padding: 0;
+  }
+}
+
+
+.theme-modal .modal-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  margin: 0 0 calc(1 * var(--margin));
+  position: relative;
+  width: 100%;
+  
+  h2 {
+    margin: 0;
+  }
+  .modal-close, .button-close {
+    position: relative;
+  }
+}
+  
+.button-close,
+.modal-close {
+  align-items: center;
+  border-radius: 99px;
+  display: flex;
+  height: calc(1.25 * var(--margin));
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(1.55 * var(--margin));
+  z-index: 1;
+  
+  .icon {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  
+  svg * {
+  }
+}
+
+.theme-modal {
+  
+  .inner-scroller {
+    
+    .modal-header {
+      padding: calc(1 * var(--margin));
+      position: fixed;  
+    }
+  }
+}
+
+.theme-modal.theme-modal--dark .modal-close, 
+.button-close.button-close--dark {
+  background: transparent none;
+  border: 1.5px solid var(--color-border-dark);
+  
+  svg * {
+    stroke: var(--color-type-dark);
+  }  
+}
+
+.theme-modal {
+  left: -9999px;
+  opacity: 0;
+  transition: left 0s 1s linear, opacity .675s 0s $easeOutQuart;
+  
+  &.reveal {
+    left: 0;
+    opacity: 1;
+    transition: left 0s linear, opacity .675s $easeOutQuart;  
+  }
+}

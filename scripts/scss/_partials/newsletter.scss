@@ -1,0 +1,529 @@
+.rimage-outer--outer {
+  
+  > div {
+    height: 100%;
+    
+    &.rimage-loffset {
+      margin-left: calc(-1 * var(--col-width) - var(--margin))
+    }
+    &.rimage-roffset {
+      margin-right: calc(-1 * var(--col-width) - var(--margin))
+    }
+  }
+}
+
+.section-newsletter {
+  
+  h2 {
+    margin-bottom: calc(1 * var(--col-width));
+  }  
+}
+
+.klaviyo-form {
+  
+  .go2587743230.go2587743230,
+  .go2587743230 {
+    padding: var(--margin) 0 !important;
+  }
+  .go2587743230.go2587743230.go2587743230 a, /* new elements? */
+  .go2587743230.go2587743230.go2587743230 :not(a),
+  .go2428628694.go2428628694.go2428628694 *, 
+  .go2428628694.go2428628694.go2428628694 a, 
+  .go2428628694.go2428628694.go2428628694 :not(a),
+  .go2428628694.go2428628694.go2428628694 a,  
+  p, p span {
+    border: none !important;
+    color: var(--color-type) !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 300 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+  }
+  
+  form {
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    @include medium-down {
+      padding: 0 !important;
+    }
+  }
+  form div {
+  }
+  form > div > div {
+    border: 1px solid var(--color-border) !important;
+    border-radius: 0 !important;
+    border-width: 0 0 1px !important;
+    line-height: .9 !important;
+    
+    &:nth-child(n+4) {
+      border-width: 0 !important;
+    }
+    
+    > div {
+      margin: 0 !important;
+      padding: 0 !important;
+      
+      > div > div {
+        background: transparent none !important;
+      }
+    }
+  }
+  
+  [data-testid="form-component"] > div > div {
+    border: none !important;
+    border-radius: 0 !important;
+    font-family: acumin !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    
+    span {
+      font-family: acumin !important;
+      font-size: calc(1 * var(--type-size-clamp)) !important;
+      font-weight: 300 !important;
+    }
+    
+    > span {
+      display: block !important;
+      margin: var(--margin) 0 !important;
+    }
+    
+    span a {
+      color: var(--color-type) !important;
+    }
+    
+    button {
+      width: 40px !important;
+    }
+  }
+  
+  button svg {
+    display: none !important;
+  }
+  
+  input, button:not([class*="closeButton"]):not([role="combobox"]) {
+    background: transparent none !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 0 !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    color: var(--color-type) !important;
+    font-family: acumin !important;
+    font-size: var(--type-size) !important;
+    font-weight: 300 !important;
+    height: auto !important;
+    letter-spacing: var(--letter-spacing) !important;
+    line-height: 1.1 !important;
+    padding: calc(1 * var(--margin)) 0 !important;
+    text-transform: uppercase !important;
+  }
+  input {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  input::placeholder {
+    color: var(--color-type) !important;
+    font-family: acumin !important;
+    font-size: var(--type-size) !important;
+    font-weight: 300 !important;
+    letter-spacing: var(--letter-spacing) !important;
+    text-transform: uppercase !important;
+  }
+  button:not([class*="closeButton"]):not([role="combobox"]) {
+    align-items: center;
+    background: transparent none !important;
+    color: var(--color-type) !important;
+    display: flex;
+    padding: var(--margin) 0 !important;
+    text-transform: uppercase !important;
+    
+    &:after {
+    	background-image: var(--icon-arrow);
+    	//content: '';
+    	background-repeat: no-repeat;
+    	margin-left: calc(1 * var(--margin));
+    	height: 20px;
+    	pointer-events: none;
+    	width: 60px;
+    }
+  }
+  button[role="combobox"] {
+    background: transparent none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+[class*="ValidationMessage__Valid"] {
+  background-color: rgb(208, 51, 31) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--color-bg) !important;
+  font-family: acumin !important;
+  text-transform: uppercase !important;
+  
+  &:before,
+  &:after {
+    border-bottom-color: rgb(208, 51, 31) !important;
+  }
+  
+  span {
+    color: var(--color-bg) !important;
+    font-family: acumin !important;
+    font-size: 1.1rem !important;
+    font-weight: inherit !important;
+  }
+}
+
+.section-newsletter {
+  
+  .klaviyo-form {
+  
+    form > div {
+      display: flex;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      
+      > div {
+        width: 100% !important;
+        
+        &:nth-child(1),
+        &:nth-child(2) {
+          width: calc(50% - .5 * var(--margin)) !important;
+        }
+      }
+    }
+    form > div > div > div {
+      flex: 1 !important;
+    }
+    button:not([class*="closeButton"]):not([role="combobox"]) {
+      margin: calc(-1 * var(--margin)) 0 calc(-1 * var(--margin)) auto !important;
+    }
+  }
+}
+
+footer.site-footer {
+   
+  .klaviyo-form {
+    
+    form > div {
+      display: flex;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      justify-content: space-between !important;
+      
+      > div {
+        flex: 1 !important;
+        
+        &:last-child{
+          display: flex !important;
+          flex: unset !important;
+          justify-content: flex-end !important;
+          width: auto !important;
+        }
+      }
+    }
+    form > div > div > div {
+      flex: 1 !important;
+    }
+  
+    form > div > div {
+      border-bottom: 1px solid var(--color-border) !important;  
+      
+      &:nth-child(5) {
+        border-bottom: none !important;
+      }
+    }
+    input, button:not([class*="closeButton"]):not([role="combobox"]) {
+      color: var(--color-type) !important;
+      font-family: acumin !important;
+      font-size: var(--type-size-small) !important;
+      margin: 0 !important;
+      padding-top: 0 !important;
+      white-space: nowrap !important;
+      width: auto !important;
+    }
+    input::placeholder {
+      color: var(--color-type-light-darker) !important;
+      font-size: var(--type-size-small) !important;
+    }
+    button:not([class*="closeButton"]):not([role="combobox"]) {
+      color: var(--color-type) !important;
+      
+      &:after {
+      	background-image: var(--icon-arrow);
+      }
+    }
+    
+    .go2587743230.go2587743230.go2587743230 a, /* new elements? */
+    .go2587743230.go2587743230.go2587743230 :not(a),
+    .go2428628694.go2428628694.go2428628694 *, 
+    .go2428628694.go2428628694.go2428628694 a, 
+    .go2428628694.go2428628694.go2428628694 :not(a),
+    .go2428628694.go2428628694.go2428628694 a,  
+    p, p span, p a {
+      font-size: calc(.925 * var(--type-size)) !important;
+    }
+    p, p span {
+      font-size: 12px;
+      
+      &[style*="font-size:24px"] {
+        letter-spacing: var(--letter-spacing);
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+[aria-label="POPUP Form"] { 
+  transform: none !important;
+  
+  @include medium-down {
+    div[style*="transform: scale"] {
+      transform: scale(.875) !important;
+    }
+  }
+  
+  .klaviyo-form {
+    display: flex !important;
+    padding: 0 !important;
+    
+    @include medium-down {
+      flex-direction: column !important;  
+      margin-left: var(--margin) !important;
+      margin-right: var(--margin) !important;
+      width: calc(100vw - 2 * var(--margin)) !important;
+    }
+    
+    > div {
+      margin: 0 !important;
+      
+      @include medium-down {
+        width: 100% !important;  
+      }
+      &:nth-child(1) {
+        @include medium-down {  
+          max-height: 100vw !important
+        }
+      }
+      &:nth-child(2){
+        padding: calc(1 * var(--margin)) calc(2 * var(--margin)) !important;
+        
+        @include medium-down {  
+          padding: calc(2 * var(--margin)) !important;  
+        }
+      }
+    }
+    
+    > div:first-child {
+      > div {
+        flex: 1;
+      }
+    }
+    
+    > div > div {
+      border: 1px solid rgba(0, 0, 0, .125) !important;
+      border-radius: 0 !important;
+      border-width: 0 0 1px !important; 
+      line-height: .9 !important;
+      height: auto !important;
+      
+      &:nth-child(1),
+      &:last-child {
+        border-width: 0 !important;
+      }
+      
+      > div {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+    button:not([class*="closeButton"]):not([role="combobox"]){
+      color: inherit !important;
+      margin-bottom: calc(-1 * var(--margin)) !important;
+      
+      &:hover {
+        background: transparent none !important;
+        color: inherit !important;
+      }
+    }
+  }
+  
+  [id*="rich-text"] {
+    p, p span {
+      font-family: classico !important;
+      font-size: var(--type-size-heading) !important;
+      line-height: 1 !important;
+      margin-bottom: calc(1 * var(--margin)) !important;
+      
+      @include medium-down {
+        font-size: var(--type-size-heading-mobile) !important;
+      }
+    }
+  }
+  
+  button.klaviyo-close-form,
+  button.klaviyo-close-form:hover {
+    background-color: var(--color-type) !important;
+    border-radius: 99px !important;
+    margin: calc(.5 * var(--margin)) !important;
+    height: calc(1.5 * var(--margin)) !important;
+    padding: 0 !important;
+    width: calc(1.5 * var(--margin)) !important;
+    
+    @include medium-down {
+      right: var(--margin) !important;
+    }
+    
+    svg {
+      height: calc(1.5 * var(--margin)) !important;
+      width: calc(1.5 * var(--margin)) !important;
+        
+      circle {
+        fill: transparent !important;
+        stroke: none;
+      }
+      path {
+        stroke: var(--color-type-dark) !important;
+        stroke-width: .75px !important;
+      }
+    }
+  }
+}
+
+
+.newsletter--form {
+  align-items: flex-end;
+  display: flex;
+  flex: 1;
+}
+
+.go2428628694.go2428628694.go2428628694 { 
+
+  *, 
+  a, 
+  :not(a) {
+    color: inherit !important;
+    font-family: acumin !important;
+    font-size: 9.75px !important;
+    font-weight: 300 !important;
+    padding: var(--margin) 0 !important;
+  }
+  a {
+    text-decoration: underline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+[style*='animation-name: klaviyo-fadeout'] {
+  pointer-events: none !important;
+  
+  * {
+    pointer-events: none !important;
+  }
+}
+
+/*
+
+*/
+
+.klaviyo-form form {
+  background: transparent none !important;
+  max-width: 9999px !important; 
+  
+  > div {
+    min-height: 0 !important;
+  }
+}
+
+.klaviyo-form form a {
+  color: var(--color-type) !important;
+  font-size: inheritt !important; }
+
+.page-complete-your-profile .klaviyo-form form > div > div:nth-child(n+4) {
+  border-bottom: 1px solid var(--color-border) !important; }
+.page-complete-your-profile .klaviyo-form form > div > div:nth-child(n+6) {
+  border-bottom: none !important; }
+.page-complete-your-profile .klaviyo-form form > div > div:nth-child(6) {
+  padding: var(--margin) 0 0 !important; }
+.page-complete-your-profile .klaviyo-form form button.needsclick.needsclick.needsclick.needsclick, .page-complete-your-profile .klaviyo-form form button.needsclick.needsclick.needsclick.needsclick:hover {
+  background: transparent none !important;
+  color: var(--color-type) !important; }
+
+/* added by JD from styles.css.liquid */
+/* Klaviyo code back to add in theme.css  7657 - 7720 */
+
+.section-newsletter .klaviyo-form form > div {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+}
+
+
+.section-newsletter .klaviyo-form form > div > div {
+  width: 100% !important;
+}
+.section-newsletter .klaviyo-form form > div > div:nth-child(1), .section-newsletter .klaviyo-form form > div > div:nth-child(2) {
+  width: calc(50% - 0.5 * var(--margin)) !important;
+}
+.section-newsletter .klaviyo-form form > div > div > div {
+  flex: 1 !important;
+}
+.section-newsletter .klaviyo-form button:not([class*=closeButton]):not([role=combobox]) {
+  margin: calc(-1 * var(--margin)) 0 calc(-1 * var(--margin)) auto !important;
+}
+
+footer.site-footer .klaviyo-form form > div {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+}
+footer.site-footer .klaviyo-form form > div > div {
+  flex: 1 !important;
+}
+footer.site-footer .klaviyo-form form > div > div:last-child {
+  display: flex !important;
+  flex: unset !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+}
+footer.site-footer .klaviyo-form form > div > div > div {
+  flex: 1 !important;
+  justify-content:flex-end !important;
+}
+footer.site-footer .klaviyo-form form > div > div {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+footer.site-footer .klaviyo-form form > div > div:nth-child(5) {
+  border-bottom: none !important;
+}
+footer.site-footer .klaviyo-form input, footer.site-footer .klaviyo-form button:not([class*=closeButton]):not([role=combobox]) {
+  color: #fff !important;
+  font-family: acumin !important;
+  font-size: var(--type-size-small) !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+footer.site-footer .klaviyo-form input::placeholder {
+  color: var(--color-type-light-darker) !important;
+  font-size: var(--type-size-small) !important;
+}
+footer.site-footer .klaviyo-form button:not([class*=closeButton]):not([role=combobox]) {
+  color: #fff !important;
+  justify-content:flex-end;
+}
+footer.site-footer .klaviyo-form button:not([class*=closeButton]):not([role=combobox]):after {
+  background-image: var(--icon-arrow);
+}
+/* Klaviyo CSS ends */

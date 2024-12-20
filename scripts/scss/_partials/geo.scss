@@ -1,0 +1,147 @@
+.geo_popup-container{
+  z-index: 90000;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  text-align: center;
+  color: white;
+  display: none;
+}
+.geo_popup-container.model-open{
+  display: flex;
+}
+.geo_popup-inner{
+  margin-top: 30px;
+  max-width: 500px;
+  padding: 20px 15px;
+  background-color: white;
+  position: relative;
+  z-index: 9999;
+}
+@include medium-down {
+  .geo_popup-inner{
+    margin:0;
+    padding:0;
+    width:100%;
+  }
+}
+.geo_popup-content-wrap{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  background-color:rgb(68,76,81);
+  background-position:center;
+  background-size:cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.geo_popup-content-wrap .close-btn{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  padding: 10px;
+}
+.geo_popup-header{
+  width: 80%;
+}
+@include medium-down {
+  .geo_popup-content-wrap{
+    width: 100%;
+    height: 100vh;
+  }
+  .geo_popup-header{
+    width: 100%;
+  padding:0 20px;
+  }
+}
+.geo_popup-content-wrap h2{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.geo_popup-countries{
+  position: relative;
+  width: 260px;
+  text-align: left;
+  margin-top: 20px;
+}
+.geo_popup-countries ul{
+  display: none;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  
+}
+.geo_popup-countries ul.active{
+  display: block;
+  max-height:120px;
+  overflow-y:scroll;
+}
+.geo_popup-countries ul li{
+  cursor: pointer;
+}
+.geo_popup-countries #selected_country{
+  border: 1px solid white;
+  border-width: 0 0 1px;
+  padding: 10px 0;    
+  margin-bottom: 10px;
+  cursor: pointer;
+  position:relative;
+}
+.geo_popup-countries #selected_country:after{
+  content: "";
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: #fff;
+  display: inline-block;
+  margin: 0 0 -2px 0;
+  position:absolute;
+  right:0;
+  top:40%;
+}
+.geo_popup-inner .btn {
+  width: 200px;
+  font-size: 10px;
+  font-weight: normal;
+  background-color: white;
+  color: black;
+}
+.model-open .bg-overlay {
+  background: var(--color-bg);
+  z-index: 99;
+}
+.bg-overlay {
+  background: rgba(0, 0, 0, 0);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  transition: background 0.15s linear;
+}
+.redirect_btn{
+  background:white;
+}
+
+.geo_popup-container .btn--block {
+  width: 260px;
+  
+  .btn {
+    width: 100%;
+  }
+}

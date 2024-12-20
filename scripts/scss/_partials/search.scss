@@ -1,0 +1,118 @@
+/*
+
+body.modal-active[data-modal-id="product-image"] .site-control, 
+body.modal-active[data-modal-id="quick-buy"] .site-control, 
+body.modal-active[data-modal-id="search-modal"] .site-control {
+  opacity: 1;
+  visibility: visible;
+}
+
+#search-modal {
+  height: auto;
+  min-height: var(--menu-height);
+  top: var(--announce-height);
+  z-index: 99;
+}
+
+*/
+
+#search-modal-new {
+  background: var(--color-bg-darker);
+  height: auto;
+  margin-top: -1px;
+  top: var(--nav-height);
+  z-index: 100;
+  
+  &:before {
+    display: none;
+  }
+  
+  @include medium-down {
+    top: var(--nav-height);
+  }
+}
+
+#search-modal-new {
+  
+  .inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(1 * var(--margin)) 0 calc(2 * var(--margin));
+    position: relative;
+  }
+}
+div.search-form {
+  display: flex;
+  margin: calc(.5 * var(--margin)) 0;
+  padding: 0;
+}
+
+.search-form {
+  
+  input {
+    background: transparent none;
+    border-bottom: 1px solid var(--color-border);
+    flex: 1;
+    font-size: inherit;
+    height: auto;
+    min-height: 0;
+    padding: calc(.5 * var(--margin)) 0;
+    
+    &::placeholder {
+      color: var(--color-type);
+    }
+  }
+  button {
+    background: transparent none;
+    border: none;
+    height: auto;
+    padding: 0;
+    width: auto;
+  }  
+}
+
+#search-modal-new {
+  
+  div.search-form {
+    margin: var(--margin) auto;
+  }
+  input {
+    font-size: var(--type-size);
+    margin-right: calc(1 * var(--margin));
+    padding: calc(.25 * var(--margin)) 0;
+    
+    &::placeholder {
+      color: rgba(0, 0, 0, .5);
+    }
+  }
+  button {  }  
+}
+
+@include medium-down {
+  
+  #search-modal-new {
+    
+    .modal-header {
+      position: static;
+    }
+    a.modal-close {
+      margin-top: 0;
+      top: 50%; 
+      transform: translateY(calc(-50% - (.175 * var(--margin)))); 
+    }
+  }
+}
+
+body[data-modal="#search-modal-new"] {
+  overflow: hidden;
+}
+
+.login-buttons {
+  
+  .btn:not(.btn--line){
+    margin-bottom: calc(.5 * var(--margin));
+    width: 100%;
+  }
+}
