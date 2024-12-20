@@ -5778,7 +5778,6 @@ body[logoVisibility] #header svg#logo-mobile g > * {
 }
 
 #loader {
-  animation: animationHide 0.975s;
   animation-delay: 4.375s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
