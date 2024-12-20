@@ -8,7 +8,9 @@
     <script>
     if (window.location.href.indexOf('localhost')>-1)
         document.write('<link rel="stylesheet" href="/scripts/theme.css">');
-    else 
+    else if (window.location.href.indexOf('squarespace')>-1)
+      console.log('squarespace config');
+    else
         document.write('<link rel="stylesheet" href="https://jdarcyhayward.github.io/themodernists/scripts/theme.css">');
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
