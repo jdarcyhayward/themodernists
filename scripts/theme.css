@@ -5810,6 +5810,10 @@ body[logoVisibility] #header svg#logo-mobile g > * {
   width: 100%;
 }
 
+body[dataAvailable] #loader {
+  animation: animationHide 0.975s;
+}
+
 #loader svg * {
   fill: rgba(0, 0, 0, 0);
 }
@@ -5901,6 +5905,14 @@ body[dataClosing] #loader #logo-loader-fill * {
     opacity: 100%;
   }
 }
+#runBtn {
+  bottom: 0;
+  height: 100px;
+  right: 0;
+  position: fixed;
+  width: 100px;
+}
+
 html, body {
   font-size: var(--type-size-clamp);
   -webkit-font-smoothing: antialiased;
