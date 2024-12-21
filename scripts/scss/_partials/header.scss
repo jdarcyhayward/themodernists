@@ -478,7 +478,7 @@ body {
 }
 
 #loader {
-  //animation: animationHide .975s;
+  animation: animationHide .975s;
   animation-delay: 4.375s;
   animation-fill-mode: forwards; 
   animation-iteration-count: 1;
@@ -510,12 +510,6 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
   }
-}
-body[dataAvailable] #loader {
-  animation: animationHide .975s;
-  animation-delay: 4.375s;
-  animation-fill-mode: forwards; 
-  animation-iteration-count: 1; 
 }
 
 #loader svg {
@@ -631,6 +625,7 @@ body[dataClosing]{
 }
 #runBtn {
   bottom: 0;
+  display: none !important;
   height: 100px;
   right: 0;
   position: fixed;
