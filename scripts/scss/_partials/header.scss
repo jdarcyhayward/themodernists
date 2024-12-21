@@ -626,9 +626,9 @@ body[dataClosing]{
 #runBtn {
   bottom: 0;
   display: none !important;
-  height: 100px;
+  height: 0;
   right: 0;
   position: fixed;
-  width: 100px;
-  z-index: 99999999999;
+  width: 0;
+  z-index: -1;
 }
